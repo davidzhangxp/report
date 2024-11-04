@@ -1,39 +1,52 @@
 <p>ticket-list works!</p>
-<div class="list" >
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Lorem</th>
-            <th scope="col">Ipsum</th>
-            <th scope="col">Dolor</th>
-            <th scope="col">Lorem</th>
-            <th scope="col">Ipsum</th>
-            <th scope="col">Dolor</th>
-            <th scope="col">Lorem</th>
-            <th scope="col">Ipsum</th>
-            <th scope="col">Dolor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ticket of tickets">
-            <th scope="row">1</th>
-            <td>Sit</td>
-            <td>Amet</td>
-            <td>Sit</td>
-            <td>Amet</td>
-            <td>Sit</td>
-            <td>Amet</td>
-            <td>Sit</td>
-            <td>Amet</td>
 
-            <td>
-              <button type="button" class="btn btn-link btn-sm px-3" mdbRipple rippleColor="dark">
-                <i class="fas fa-times"></i>
-              </button>
-            </td>
-          </tr>
-          
-        </tbody>
-      </table>
+
+<div>
+  <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls">
 </div>
+<div>
+  <button (click)="exportexcel()">Export to Excel</button>
+</div>
+
+<div *ngIf="excelData">
+  <h3>Uploaded Data:</h3>
+
+</div>
+<div class="list" >
+  <table class="table" id="excel-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Lorem</th>
+          <th scope="col">Ipsum</th>
+          <th scope="col">Dolor</th>
+          <th scope="col">Lorem</th>
+          <th scope="col">Ipsum</th>
+          <th scope="col">Dolor</th>
+          <th scope="col">Lorem</th>
+          <th scope="col">Ipsum</th>
+          <th scope="col">Dolor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of excelData">
+          <th scope="row">{{data.Ticket_Number}}</th>
+          <td>{{data.SN}}</td>
+          <td>{{data.IP}}</td>
+          <td>{{data.Ticket_Time}}</td>
+          <td>{{data.Close_Time}}</td>
+          <td>{{data.Product_Name}}</td>
+          <td>Amet</td>
+          <td>Sit</td>
+          <td>Amet</td>
+
+          <td>
+            <button type="button" class="btn btn-link btn-sm px-3" mdbRipple rippleColor="dark">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    </div>

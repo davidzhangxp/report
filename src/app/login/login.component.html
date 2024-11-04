@@ -1,50 +1,58 @@
 <p>login works!</p>
-<div>
-    <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls">
-  </div>
-  <div>
-    <button (click)="exportexcel()">Export to Excel</button>
-  </div>
-  
-  <div *ngIf="excelData">
-    <h3>Uploaded Data:</h3>
-  
-  </div>
-  <div class="list" >
-    <table class="table" id="excel-table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Lorem</th>
-            <th scope="col">Ipsum</th>
-            <th scope="col">Dolor</th>
-            <th scope="col">Lorem</th>
-            <th scope="col">Ipsum</th>
-            <th scope="col">Dolor</th>
-            <th scope="col">Lorem</th>
-            <th scope="col">Ipsum</th>
-            <th scope="col">Dolor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of excelData">
-            <th scope="row">{{data.Ticket_Number}}</th>
-            <td>{{data.SN}}</td>
-            <td>{{data.IP}}</td>
-            <td>{{data.Ticket_Time}}</td>
-            <td>{{data.Close_Time}}</td>
-            <td>{{data.Product_Name}}</td>
-            <td>Amet</td>
-            <td>Sit</td>
-            <td>Amet</td>
-
-            <td>
-              <button type="button" class="btn btn-link btn-sm px-3" mdbRipple rippleColor="dark">
-                <i class="fas fa-times"></i>
-              </button>
-            </td>
-          </tr>
-          
-        </tbody>
-      </table>
-      </div>
+<table id="customers">
+    <tr>
+      <th>Company</th>
+      <th>Contact</th>
+      <th>Country</th>
+    </tr>
+    <tr>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <td>Berglunds snabbköp</td>
+      <td>Christina Berglund</td>
+      <td>Sweden</td>
+    </tr>
+    <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr>
+    <tr>
+      <td>Ernst Handel</td>
+      <td>Roland Mendel</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Island Trading</td>
+      <td>Helen Bennett</td>
+      <td>UK</td>
+    </tr>
+    <tr>
+      <td>Königlich Essen</td>
+      <td>Philip Cramer</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <td>Laughing Bacchus Winecellars</td>
+      <td>Yoshi Tannamuri</td>
+      <td>Canada</td>
+    </tr>
+    <tr>
+      <td>Magazzini Alimentari Riuniti</td>
+      <td>Giovanni Rovelli</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <td>North/South</td>
+      <td>Simon Crowther</td>
+      <td>UK</td>
+    </tr>
+    <tr>
+      <td>Paris spécialités</td>
+      <td>Marie Bertrand</td>
+      <td>France</td>
+    </tr>
+  </table>

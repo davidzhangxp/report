@@ -27,9 +27,9 @@ p{
 /*hyperlink*/
 a{
     cursor: pointer;
-    color: var(--secondary-color);
+    
     text-decoration: none;
 }
 a:hover{
-    opacity: 0.8;
+    opacity: 0.6;
 }
