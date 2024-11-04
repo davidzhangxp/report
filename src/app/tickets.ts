@@ -34,6 +34,21 @@ export interface Ticket {
 
 }
 
+export const report_titles: string[] = [
+   
+        "Ticket_Number",
+        "SN",
+        "IP",
+        "Ticket_Time",
+        "Close_Time",
+        "Product_Name",
+        "Model",
+        "Location",
+        "Unit",
+        "Failure_Type"
+        
+]
+
 export const tickets_list:Ticket[] = [
     {    id: 1,
         ticket_number: '123',

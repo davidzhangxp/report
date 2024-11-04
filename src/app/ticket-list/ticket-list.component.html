@@ -15,34 +15,29 @@
 <div class="list" >
   <table class="table" id="excel-table">
       <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Lorem</th>
-          <th scope="col">Ipsum</th>
-          <th scope="col">Dolor</th>
-          <th scope="col">Lorem</th>
-          <th scope="col">Ipsum</th>
-          <th scope="col">Dolor</th>
-          <th scope="col">Lorem</th>
-          <th scope="col">Ipsum</th>
-          <th scope="col">Dolor</th>
+        <tr >
+          <th scope="col" >ID</th>
+          <th scope="col" *ngFor="let head of report_heads">{{head}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of excelData">
-          <th scope="row">{{data.Ticket_Number}}</th>
-          <td>{{data.SN}}</td>
-          <td>{{data.IP}}</td>
-          <td>{{data.Ticket_Time}}</td>
-          <td>{{data.Close_Time}}</td>
-          <td>{{data.Product_Name}}</td>
-          <td>Amet</td>
-          <td>Sit</td>
-          <td>Amet</td>
-
+        <tr *ngFor="let data of excelData; let i=index">
+          <th scope="row">ID</th>
+          <!-- <td *ngFor="let item of data | keyvalue">{{item.value}}</td> -->
+          <td *ngIf="report_heads.includes('Ticket_Number')"><a [title]="data.Ticket_Number + 'details'" [routerLink]="['/tickets', data.ID]">{{data.Ticket_Number}}</a></td>
+          <td *ngIf="report_heads.includes('SN')">{{data.SN}}</td>
+          <td *ngIf="report_heads.includes('IP')">{{data.IP}}</td>
+          <td *ngIf="report_heads.includes('Ticket_Time')">{{data.Ticket_Time}}</td>
+          <td *ngIf="report_heads.includes('Close_Time')">{{data.Close_Time}}</td>
+          <td *ngIf="report_heads.includes('Product_Name')">{{data.Product_Name}}</td>
+          <td *ngIf="report_heads.includes('Model')">{{data.Model}}</td>
+          <td *ngIf="report_heads.includes('Location')">{{data.Location}}</td>
+          <td *ngIf="report_heads.includes('Unit')">{{data.Unit}}</td>
+          <td *ngIf="report_heads.includes('Failure_Type')">{{data.Failure_Type}}</td>
+          <td *ngIf="report_heads.includes('If_change_Part')">{{data.If_change_Part}}</td>
           <td>
-            <button type="button" class="btn btn-link btn-sm px-3" mdbRipple rippleColor="dark">
-              <i class="fas fa-times"></i>
+            <button type="button" >
+              <i class="fa fa-times"></i>
             </button>
           </td>
         </tr>

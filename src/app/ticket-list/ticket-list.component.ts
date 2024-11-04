@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { tickets_list } from '../tickets';
+import { tickets_list,report_titles } from '../tickets';
 import { CommonModule } from '@angular/common';
 import * as XLSX from 'xlsx'
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './ticket-list.component.html',
   styleUrl: './ticket-list.component.css'
 })
@@ -14,7 +15,7 @@ export class TicketListComponent {
 
 
    tickets = tickets_list
-
+  report_heads= report_titles
    excelData: any[] | undefined;
    fileName = 'Breakfix_report.xlsx'
  
