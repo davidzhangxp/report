@@ -1,5 +1,5 @@
 export interface Ticket {
-    id: number;
+    id: string;
     ticket_number: string;
     server_sn:string;
     ip:string;
@@ -9,7 +9,7 @@ export interface Ticket {
     model:string;
     location:string;
     failure_type:string;
-    if_change_part?:Boolean;
+    if_change_part:string;
     foxconn_pn?:string;
     old_manufacture?:string;
     old_part_pn?:string;
@@ -56,8 +56,8 @@ export const report_titles: string[] = [
         
 ]
 
-export const tickets_list:any[] = [
-    {    id: 1,
+export const tickets_list:Ticket[] = [
+    {    id: '1',
         ticket_number: '123',
         server_sn:'Ex321',
         ip:'1234556',
@@ -67,7 +67,7 @@ export const tickets_list:any[] = [
         model:'r240',
         location:'us-alt-j30',
         failure_type:'disk',
-        if_change_part:true,
+        if_change_part:'Y',
         foxconn_pn:'',
         old_manufacture:'',
         old_part_pn:'',
@@ -90,7 +90,7 @@ export const tickets_list:any[] = [
         ot_reason:'',
         hhpn:''
     },
-    {    id: 2,
+    {    id: '2',
         ticket_number: '234123',
         server_sn:'Ex321',
         ip:'1234556',
@@ -100,7 +100,7 @@ export const tickets_list:any[] = [
         model:'r240',
         location:'us-alt-j30',
         failure_type:'disk',
-        if_change_part:true,
+        if_change_part:'N',
         foxconn_pn:'',
         old_manufacture:'',
         old_part_pn:'',

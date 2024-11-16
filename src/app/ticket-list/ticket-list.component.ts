@@ -1,5 +1,5 @@
-import { Component, OnInit,ChangeDetectorRef, AfterViewInit } from '@angular/core';
-import { tickets_list,report_titles } from '../tickets';
+import { Component } from '@angular/core';
+import { report_titles } from '../tickets';
 import { CommonModule } from '@angular/common';
 import * as XLSX from 'xlsx'
 import { RouterModule } from '@angular/router';
@@ -16,12 +16,17 @@ import { TicketService } from '../ticket.service';
 export class TicketListComponent {
 
 
-   tickets = tickets_list
+   tickets:any[] =[]
   report_heads= report_titles
    excelData: any[] | undefined;
    fileName = 'Breakfix_report.xlsx'
 
-   constructor(private ts: TicketService){}
+   constructor(private ts: TicketService){
+    this.ts.getTickets().subscribe( (res: any) => {
+      
+      this.tickets = res
+    })
+   }
 
  
    
@@ -34,8 +39,12 @@ export class TicketListComponent {
        const firstSheetName = workbook.SheetNames[0];
        const worksheet = workbook.Sheets[firstSheetName];
        this.excelData = XLSX.utils.sheet_to_json(worksheet, { raw: true });
-       this.tickets = this.excelData
-       console.log('Excel data:', this.excelData);
+
+      this.excelData.map((ticket)=>{
+      this.ts.addTicket(ticket)
+      this.tickets.push(ticket)
+      })
+       
      };
      reader.readAsBinaryString(file);
    }

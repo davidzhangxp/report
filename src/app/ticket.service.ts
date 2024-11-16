@@ -26,6 +26,9 @@ export class TicketService {
       console.log(data)
     })
   }
+  getTickets(){
+    return this.http.get(this.apiurl + 'tickets')
+  }
   getExcelData(){
     return this.excelData
   }
