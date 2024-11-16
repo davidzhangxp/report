@@ -34,22 +34,29 @@ export interface Ticket {
 
 }
 
+export interface User{
+    name:string;
+    email:string | null | undefined;
+    password:string | null | undefined;
+    isAdmin?:Boolean
+}
+
 export const report_titles: string[] = [
    
-        "Ticket_Number",
-        "SN",
-        "IP",
-        "Ticket_Time",
-        "Close_Time",
-        "Product_Name",
-        "Model",
-        "Location",
-        "Unit",
-        "Failure_Type"
+        "ticket_number",
+        "server_sn",
+        "ip",
+        "start_date",
+        "close_date",
+        "product_name",
+        "model",
+        "location",
+        
+        "failure_type"
         
 ]
 
-export const tickets_list:Ticket[] = [
+export const tickets_list:any[] = [
     {    id: 1,
         ticket_number: '123',
         server_sn:'Ex321',

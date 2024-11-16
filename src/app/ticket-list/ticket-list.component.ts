@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { tickets_list,report_titles } from '../tickets';
 import { CommonModule } from '@angular/common';
 import * as XLSX from 'xlsx'
 import { RouterModule } from '@angular/router';
+import { CheckboxesComponent } from '../checkboxes/checkboxes.component';
+import { TicketService } from '../ticket.service';
 
 @Component({
   selector: 'app-ticket-list',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule, CheckboxesComponent],
   templateUrl: './ticket-list.component.html',
   styleUrl: './ticket-list.component.css'
 })
@@ -18,6 +20,11 @@ export class TicketListComponent {
   report_heads= report_titles
    excelData: any[] | undefined;
    fileName = 'Breakfix_report.xlsx'
+
+   constructor(private ts: TicketService){}
+
+ 
+   
  
    onFileChange(event: any) {
      const file = event.target.files[0];
@@ -27,6 +34,7 @@ export class TicketListComponent {
        const firstSheetName = workbook.SheetNames[0];
        const worksheet = workbook.Sheets[firstSheetName];
        this.excelData = XLSX.utils.sheet_to_json(worksheet, { raw: true });
+       this.tickets = this.excelData
        console.log('Excel data:', this.excelData);
      };
      reader.readAsBinaryString(file);
@@ -46,4 +54,13 @@ export class TicketListComponent {
    }
 
 
+   remove_ticket(id:number){
+    console.log('the remove ticket id is ' + id)
+   }
+
+   addticket(){
+    this.tickets.map((ticket)=>{
+      this.ts.addTicket(ticket)
+    })
+   }
 }
