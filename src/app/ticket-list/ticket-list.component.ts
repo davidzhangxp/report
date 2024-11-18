@@ -28,7 +28,9 @@ export class TicketListComponent {
     })
    }
 
- 
+   addItem(newItem: string[]) {
+    this.report_heads = newItem;
+  }
    
  
    onFileChange(event: any) {

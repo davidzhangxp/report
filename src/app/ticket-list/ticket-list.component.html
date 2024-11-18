@@ -1,4 +1,4 @@
-<app-checkboxes></app-checkboxes>
+<app-checkboxes (newItemEvent)="addItem($event)"></app-checkboxes>
 
 
 <div>
@@ -16,7 +16,7 @@
 
 </div>
 <div class="list" >
-  <table class="table" id="excel-table">
+  <table class="table" id="excel-table" *ngIf="report_heads">
       <thead>
         <tr >
           <th scope="col" >ID</th>
@@ -38,6 +38,11 @@
         
           <td *ngIf="report_heads.includes('failure_type')">{{data.failure_type}}</td>
           <td *ngIf="report_heads.includes('if_change_part')">{{data.if_change_part}}</td>
+          <td *ngIf="report_heads.includes('foxconn_pn')">{{data.foxconn_pn}}</td>
+          <td *ngIf="report_heads.includes('old_manufacture')">{{data.old_manufacture}}</td>
+          <td *ngIf="report_heads.includes('old_part_pn')">{{data.old_part_pn}}</td>
+          <td *ngIf="report_heads.includes('new_manufacture')">{{data.new_manufacture}}</td>
+
           <td>
             <button type="button" (click)="remove_ticket(data.id)">
               <i class="fa fa-times"></i>
